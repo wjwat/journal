@@ -8,11 +8,9 @@ $(document).ready(function() {
     e.preventDefault();
     let date = new Date();
     //let date = $('#date').val();
-    //let entry = $('#entry').val();
-    let entry = "This is our default string.AAA";
+    let entry = $('#entry').val();
     newJournal.addEntry(date.toLocaleTimeString(), entry);
-
     console.log(newJournal);
-    console.log(newJournal.vowelAndConsonantCount(0));
+    console.log(newJournal.getTeaser(0));
   });
 });

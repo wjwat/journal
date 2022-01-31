@@ -27,7 +27,34 @@ Journal.prototype.vowelAndConsonantCount = function(index) {
   return {vowels: vowelCount, consonants: consonantCount};
 };
 
+// "Shit\n"
+// "\n\n\n\nThis is my entry!"
+// "          \n\n\n\n\n\nI don't know how to read!"
+// "This is a sentence. This is also a sentence.\nThis is my entry."
+// "This is the teaser. This is not the teaser."
+// "I am the very model of a modern Major-General\nI've…ful facts about the square of the\nHypotepotenuse
 Journal.prototype.getTeaser = function(index) {
-  console.log(index);
-  // logic to return teaser for entry @ index
+  // lines = entry.split(\n)
+  // check lines until non-empty line is hit
+  // split line by '.'
+  // split sentence by ' '
+  // return first eight words (or works up until 8)
+
+  let lines = this.entries[index].entry.split('\n');
+
+  for (let i = 0; i < lines.length; i++) {
+    if (lines[i].trim().length > 0) {
+      let firstSentence = lines[i].split('.')[0];
+      let wordsInFirstSentence = firstSentence.split(' ').slice(0, 8);
+      let returnString = wordsInFirstSentence.join(' ');
+
+      // length of first sentence is longer than 8 then append '...'
+      if (firstSentence.split(' ').length > 8) {
+        returnString += '...';
+      } else {
+        returnString += '.';
+      }
+      return returnString;
+    }
+  }
 };
