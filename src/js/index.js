@@ -10,7 +10,5 @@ $(document).ready(function() {
     //let date = $('#date').val();
     let entry = $('#entry').val();
     newJournal.addEntry(date.toLocaleTimeString(), entry);
-    console.log(newJournal);
-    console.log(newJournal.getTeaser(0));
   });
 });
